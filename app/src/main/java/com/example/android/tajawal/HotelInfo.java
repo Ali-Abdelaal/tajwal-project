@@ -21,12 +21,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.example.android.tajawal.MainActivity.hotelId;
-import static com.example.android.tajawal.MainActivity.url_image_hotel;
-import static com.example.android.tajawal.MainActivity.adress;
+
 import static com.example.android.tajawal.MainActivity.highRate;
 import static com.example.android.tajawal.MainActivity.lowRate;
-import static com.example.android.tajawal.MainActivity.hotelName;
+
 
 public class HotelInfo extends AppCompatActivity {
 
@@ -51,11 +49,13 @@ public class HotelInfo extends AppCompatActivity {
                 LinearLayout linearLayout = (LinearLayout) findViewById(R.id.item_hotel_data);
 
                 Intent intent = getIntent();
-                String url = intent.getStringExtra(url_image_hotel);
-                String hotelAdress = intent.getStringExtra(adress);
-                String Name = intent.getStringExtra(hotelName);
+                String url = intent.getStringExtra("url_image_hotel");
+             //   String url = intent.getStringExtra(url_image_hotel);
+                String hotelAdress = intent.getStringExtra("adress");
+                String Name = intent.getStringExtra("hotelName");
                 double actualPrice = intent.getDoubleExtra("lowRate" , lowRate);
                 double normalPrice = intent.getDoubleExtra("highRate" , highRate);
+
 
                 ImageView imageView = linearLayout.findViewById(R.id.img_hotel);
                 Picasso.get().load(url).noPlaceholder()
@@ -63,7 +63,7 @@ public class HotelInfo extends AppCompatActivity {
                         .into(imageView);
 
                 TextView textView = (TextView) linearLayout.findViewById(R.id.hotel_name_data);
-                textView.setText(hotelName);
+                textView.setText(Name);
 
                 TextView textView1 = (TextView) linearLayout.findViewById(R.id.adress);
                 textView1.setText(hotelAdress);

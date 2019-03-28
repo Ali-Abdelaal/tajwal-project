@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity implements hotelAdpter.OnIte
     ArrayList<Hotel> hotelDataList = new ArrayList<Hotel>(); // list to store data from response body
     //  which send to adpter
     // put extra data intent
-    public static int hotelId = 0;
-    public static String url_image_hotel ;
-    public static String hotelName ;
-    public static String adress ;
+   // public static int hotelId = 0;
+    //public static String url_image_hotel ;
+    //public static String hotelName ;
+    //public static String adress ;
     public static int lowRate = 0;
     public static int highRate = 0 ;
 
@@ -110,9 +110,9 @@ public class MainActivity extends AppCompatActivity implements hotelAdpter.OnIte
     public void onItemClick(int position) {
         Intent intent = new Intent(this, HotelInfo.class);
         Hotel clickedItem = hotelDataList.get(position);
-        intent.putExtra(url_image_hotel, clickedItem.getImage().get(0).getUrl());
-        intent.putExtra(hotelName, clickedItem.getSummary().getHotelName());
-        intent.putExtra(adress, clickedItem.getLocation().getAddress());
+        intent.putExtra("url_image_hotel", clickedItem.getImage().get(0).getUrl());
+        intent.putExtra("hotelName", clickedItem.getSummary().getHotelName());
+        intent.putExtra("adress", clickedItem.getLocation().getAddress());
         intent.putExtra("lowRate", clickedItem.getSummary().getLowRate());
         intent.putExtra("highRate", clickedItem.getSummary().getHighRate());
         intent.putExtra("hotelId", clickedItem.getHotelId());

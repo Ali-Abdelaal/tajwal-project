@@ -41,6 +41,7 @@ public class hotelAdpter extends ArrayAdapter<Hotel> {
 
     public interface OnItemClickListener {
         void onItemClick (int position);
+
     }
 
     public void setOnItemClickListener(OnItemClickListener listener){
