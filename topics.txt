@@ -1,0 +1,1 @@
+Separation of Concern and Single Responsibility Principle
